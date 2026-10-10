@@ -1,0 +1,19 @@
+# Architecture decisions
+
+An Architecture Decision Record (ADR) captures a significant decision, the context behind it, and its consequences. Change a handbook standard by adding or superseding an ADR.
+
+## Decision log
+
+| ADR | Title | Status |
+| --- | --- | --- |
+| [ADR-001](./adr-001-handbook-as-source-of-truth.md) | Handbook as source of truth | Accepted |
+| [ADR-002](./adr-002-git-branching-model.md) | Git branching model | Accepted |
+| [ADR-003](./adr-003-alembic-for-migrations.md) | Alembic for database migrations | Accepted |
+| [ADR-004](./adr-004-enforced-coverage-gate.md) | Enforced 80% coverage gate | Accepted |
+
+## Process
+
+- Name files `adr-NNN-short-slug.md`, numbered sequentially.
+- Use the [template](./adr-template.md).
+- Status lifecycle: `Proposed` → `Accepted` → `Superseded by ADR-NNN` or `Deprecated`.
+- Never rewrite an accepted ADR's decision. Add a new ADR that supersedes it.
