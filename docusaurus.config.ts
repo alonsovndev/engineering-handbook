@@ -6,7 +6,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "Engineering Handbook",
-  tagline: "Source of truth for the engineering platform: standards, conventions, and decisions.",
+  tagline: "A personal engineering reference: practices, conventions, and the decisions behind them.",
   favicon: "img/favicon.svg",
 
   future: {

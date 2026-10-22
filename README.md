@@ -1,8 +1,8 @@
 # engineering-handbook
 
-Source of truth for the engineering platform: backend, frontend, testing, Git, AI-development standards, and the decisions behind them. Built with [Docusaurus](https://docusaurus.io/).
+A personal engineering reference built on practical experience and lessons learned, covering backend, frontend, testing, Git, AI development, and the decisions behind them. Shared for others to learn from and adapt to their own context. Built with [Docusaurus](https://docusaurus.io/).
 
-Principle: one engineering platform, multiple deployment profiles (static, lean, enterprise).
+The approach used here: one engineering platform, multiple deployment profiles (static, lean, enterprise).
 
 ## Run locally
 

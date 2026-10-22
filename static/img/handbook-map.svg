@@ -37,7 +37,7 @@
   <g>
     <rect x="163" y="208" width="234" height="128" rx="10" fill="#0c2c45" stroke="#83c5eb" stroke-width="1.5"/>
     <path d="m260 231-27 5v42l27-5 27 5v-42l-27-5ZM260 231v42M242 246l11-2M242 254l11-2M267 244l11 2M267 252l11 2" stroke="#9bdbff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
-    <text x="280" y="303" text-anchor="middle" font-family="system-ui, sans-serif" font-size="19" font-weight="650" fill="#fff">Shared playbook</text>
+    <text x="280" y="303" text-anchor="middle" font-family="system-ui, sans-serif" font-size="19" font-weight="650" fill="#fff">Field guide</text>
     <text x="280" y="322" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#b2d1e5">Standards with a reason.</text>
   </g>
   <g>
