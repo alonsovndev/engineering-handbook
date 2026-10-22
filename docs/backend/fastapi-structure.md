@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # FastAPI structure
 
 Feature-first layout with Clean Architecture layers inside each feature. See [Clean Architecture](../architecture/clean-architecture.md) for the reasoning.
@@ -40,7 +44,8 @@ README.md
 | Orchestration, workflow, transaction boundary | `application` |
 | Database, HTTP, filesystem, external service | `infrastructure` |
 | FastAPI route, Pydantic schema | `presentation` |
-| Logging, config, retry, pure helpers | `shared` |
+| Logging, retry, pure helpers | `shared` |
+| Settings and env loading | `config` |
 
 ## Dependency direction
 
