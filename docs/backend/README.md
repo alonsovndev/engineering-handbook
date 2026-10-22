@@ -8,6 +8,7 @@ Python with FastAPI is the default for new personal, freelance, SaaS, and open-s
 | [FastAPI structure](./fastapi-structure.md) | Feature layout, layers, composition root, Docker |
 | [Dependency injection](./dependency-injection.md) | Constructor injection, composition root, `Depends`, testing with fakes |
 | [REST API](./rest-api.md) | Versioning, JSON, errors, pagination |
+| [Error handling](./error-handling.md) | Errors by layer, status mapping, problem details, exception handlers |
 | [Database and migrations](./database-and-migrations.md) | PostgreSQL, SQLAlchemy, Alembic |
 | [Logging](./logging.md) | Structured logs, correlation IDs, PII |
 

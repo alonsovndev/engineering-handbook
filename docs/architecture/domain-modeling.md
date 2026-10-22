@@ -158,7 +158,7 @@ Each layer validates its own concern, and none replaces the others.
 | Business rules and invariants | `domain` | A confirmed order cannot change |
 | Persistence integrity | Database constraints | A foreign key, a unique index |
 
-Domain code uses only the standard library. As guidance, not a standard: raise named exception types from the domain, as in the examples above, and have the presentation layer translate them to status codes such as 409 or 422 ([REST API](../backend/rest-api.md)). The exact error shape is TBD there.
+Domain code uses only the standard library. As guidance, not a standard: raise named exception types from the domain, as in the examples above, and have the presentation layer translate them to status codes such as 409 or 422 ([Error handling](../backend/error-handling.md)). The exact error shape is TBD ([REST API](../backend/rest-api.md#errors)).
 
 ## Bounded contexts and features
 
