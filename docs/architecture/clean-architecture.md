@@ -10,8 +10,8 @@ Backend applications use Clean Architecture with hexagonal ports and adapters, o
 flowchart LR
   presentation[presentation] --> application
   application --> domain
-  infrastructure -->|implements persistence ports| domain
-  infrastructure -.->|implements collaborator ports| application
+  infrastructure -->|implements<br/>persistence ports| domain
+  infrastructure -.->|implements<br/>collaborator ports| application
   composition[composition root] --> presentation
   composition --> infrastructure
 ```

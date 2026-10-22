@@ -57,8 +57,11 @@ const config: Config = {
     },
     // Diagrams must stay legible in both color modes, since colorMode follows
     // the reader's OS preference.
+    // Mermaid clips node labels wider than its 200px default instead of
+    // wrapping them, so allow wider labels.
     mermaid: {
       theme: { light: "neutral", dark: "dark" },
+      options: { flowchart: { wrappingWidth: 420 } },
     },
     navbar: {
       title: "Engineering Handbook",
