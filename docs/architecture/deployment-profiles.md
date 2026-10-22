@@ -64,6 +64,8 @@ Optional: SQS, EventBridge, S3, Secrets Manager, CloudWatch, OpenTelemetry. Auth
 
 Terraform owns the API image digest and the Cloudflare assets, so a release is a reviewed plan and apply through the reusable `terraform-plan` and `terraform-apply` workflows. CI roles trust one GitHub environment per repository, never wildcard subjects. The first apply of an API profile bootstraps the ECR repository, pushes an image, then applies the rest.
 
+The [Git release standard](../git/releases.md) controls verification and sign-off; it does not transfer Terraform ownership to an application publisher. Promote the verified API image digest, review the production plan, and obtain explicit approval before apply. The profiles remain validated offline only; this standard does not establish a working staging or production pipeline.
+
 ## Choosing
 
 - Start with the cheapest profile that meets the requirement.

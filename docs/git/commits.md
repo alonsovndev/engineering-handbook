@@ -34,12 +34,14 @@ Commits follow [Conventional Commits](https://www.conventionalcommits.org/).
 - Mark breaking changes with `!` after the type or scope, or a `BREAKING CHANGE:` footer.
 - Reject generic subjects such as `update files` or `wip`.
 - Never commit secrets, credentials, or `.env` files.
-- Do not add AI or tool co-author trailers (`Co-authored-by: ...`). The person who commits owns the change. See [ADR-002](../adr/adr-002-git-branching-model.md).
+- Do not add AI or tool co-author trailers (`Co-authored-by: ...`). The person who commits owns the change. See [ADR-007](../adr/adr-007-main-only-git-workflow.md).
 - Do not bypass hooks (`--no-verify`). Fix the failure instead.
 
 ## Enforcement
 
-Enforce the format locally with a `commit-msg` hook and in CI on pull request titles. The hook checks only the subject line and lets Git-generated `Merge ...` and `Revert ...` messages through.
+Configure the format check locally with a `commit-msg` hook and in CI on pull request titles. The hook checks only the subject line and lets Git-generated `Merge ...` and `Revert ...` messages through. With squash merging, also check the final commit message against the [PR conventions](./pull-requests.md#title).
+
+The handbook's current `Build` workflow checks types and builds the site; it does not validate PR titles or install a commit hook. Automated commit/title enforcement here is **TBD**; review the title and final squash message manually until configured.
 
 ```bash
 #!/usr/bin/env sh

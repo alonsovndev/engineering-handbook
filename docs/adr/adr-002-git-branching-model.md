@@ -1,6 +1,6 @@
 # ADR-002: Git branching model
 
-- **Status**: Accepted
+- **Status**: Superseded by [ADR-007](./adr-007-main-only-git-workflow.md)
 - **Date**: 2026-10-10
 
 ## Context
