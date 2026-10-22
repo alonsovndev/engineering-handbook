@@ -40,11 +40,12 @@ function HomepageHeader(): ReactNode {
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>The engineering field guide</p>
           <Heading as="h1" className={styles.title}>
-            Build with a shared <span>engineering playbook.</span>
+            A practical reference for <span>engineering decisions.</span>
           </Heading>
           <p className={styles.introduction}>
-            Good software starts with clear decisions. Find the standards,
-            patterns, and reasons behind the way we build.
+            A personal approach to software engineering, built on practical
+            experience and lessons learned. Explore the practices and reasoning, then
+            adapt them to your own context.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primaryAction} to="/docs/intro/">
@@ -63,7 +64,7 @@ function HomepageHeader(): ReactNode {
             src={illustrationUrl}
             width="560"
             height="456"
-            alt="An engineering blueprint connecting architecture, implementation, and verification around a shared playbook."
+            alt="An engineering blueprint connecting architecture, implementation, verification, and decisions around a field guide."
             fetchPriority="high"
           />
           <figcaption>
@@ -72,7 +73,7 @@ function HomepageHeader(): ReactNode {
         </figure>
       </div>
       <div className={`container ${styles.principles}`}>
-        <span className={styles.principlesLabel}>Our working principles</span>
+        <span className={styles.principlesLabel}>Working principles</span>
         <span>Understand first.</span>
         <span>Keep it simple.</span>
         <span>Verify before done.</span>
@@ -139,8 +140,8 @@ function Contribute(): ReactNode {
           Better with every good question.
         </Heading>
         <p>
-          Found a gap? Have a better approach? Help turn what we learn into what
-          we do next.
+          Found a gap? Have a different perspective? Share your experience to help
+          improve this reference.
         </p>
       </div>
       <Link
@@ -157,7 +158,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="Your engineering field guide"
-      description="A shared engineering playbook: practical standards for architecture, backend, frontend, testing, Git, and AI development, with the decisions behind them."
+      description="A personal engineering reference built on practical experience and lessons learned, with practices and decisions others can learn from and adapt."
     >
       <main className={styles.home}>
         <HomepageHeader />

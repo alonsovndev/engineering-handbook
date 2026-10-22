@@ -4,18 +4,21 @@ sidebar_position: 0
 
 # Introduction
 
-The engineering handbook is the source of truth for how software is built across personal, freelance, SaaS, and open-source projects. Templates, CI workflows, Terraform modules, and AGENTS.md files point here instead of restating the rules.
+This handbook documents a personal approach to software engineering, built on practical experience and lessons learned across personal, freelance, SaaS, and open-source projects. It brings together practices, patterns, and the reasoning behind engineering decisions, offering a practical reference others can learn from and adapt to their own context.
+
+For projects that adopt these standards, templates, CI workflows, Terraform modules, and `AGENTS.md` files link here to keep the guidance in one place.
 
 ## Principle
 
-One engineering platform, multiple deployment profiles.
+The approach used here is one engineering platform with multiple deployment profiles.
 
-Application architecture, testing, documentation, AI tooling, CI/CD, and development conventions stay the same across projects. Only the infrastructure changes with scale and budget. See [deployment profiles](./architecture/deployment-profiles.md).
+Within this approach, application architecture, testing, documentation, AI tooling, CI/CD, and development conventions stay consistent across projects. Infrastructure varies with scale and budget. See [deployment profiles](./architecture/deployment-profiles.md).
 
 ## How to use this handbook
 
-- Starting a project: read the standards for your stack, then copy the matching template once it exists.
-- Making a change: follow the standards for the area you touch. If a standard blocks you, propose a change through an [ADR](./adr/README.md) instead of working around it.
+- Exploring ideas: use the practices and their reasoning as a starting point, then adapt them to your project's needs and constraints.
+- Starting a project that adopts these standards: read the guidance for your stack, then use the matching template when available.
+- Making a change in a project that adopts these standards: follow the standards for the area you touch. If a standard needs to change, propose it through an [ADR](./adr/README.md) so the reasoning is recorded.
 - Briefing an AI agent: link the relevant page from the repository's AGENTS.md. See [AGENTS.md conventions](./ai-development/agents-md-conventions.md).
 
 ## Contents
