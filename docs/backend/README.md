@@ -10,6 +10,7 @@ Python with FastAPI is the default for new personal, freelance, SaaS, and open-s
 | [REST API](./rest-api.md) | Versioning, JSON, errors, pagination |
 | [Error handling](./error-handling.md) | Errors by layer, status mapping, problem details, exception handlers |
 | [Database and migrations](./database-and-migrations.md) | PostgreSQL, SQLAlchemy, Alembic |
+| [Persistence patterns](./persistence-patterns.md) | Repository adapters, mappers, constraint errors, loading, pagination |
 | [Logging](./logging.md) | Structured logs, correlation IDs, PII |
 
 Do not impose these on Flask or Django projects, small scripts, notebooks, or legacy code that follows another established architecture.
