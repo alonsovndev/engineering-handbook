@@ -11,6 +11,7 @@ An Architecture Decision Record (ADR) captures a significant decision, the conte
 | [ADR-003](./adr-003-alembic-for-migrations.md) | Alembic for database migrations | Accepted |
 | [ADR-004](./adr-004-enforced-coverage-gate.md) | Enforced 80% coverage gate | Accepted |
 | [ADR-005](./adr-005-lean-profile-lambda-container.md) | Lambda container image for the lean profile API | Accepted |
+| [ADR-006](./adr-006-cloudflare-handbook-hosting.md) | Cloudflare static hosting for the engineering handbook | Accepted |
 
 ## Process
 
