@@ -13,6 +13,7 @@ An Architecture Decision Record (ADR) captures a significant decision, the conte
 | [ADR-005](./adr-005-lean-profile-lambda-container.md) | Lambda container image for the lean profile API | Accepted |
 | [ADR-006](./adr-006-cloudflare-handbook-hosting.md) | Cloudflare static hosting for the engineering handbook | Accepted; CI branch targets amended by [ADR-007](./adr-007-main-only-git-workflow.md) |
 | [ADR-007](./adr-007-main-only-git-workflow.md) | Main-only Git workflow and project-specific releases | Accepted |
+| [ADR-008](./adr-008-modular-monolith-by-default.md) | Modular monolith by default | Proposed |
 
 ## Process
 

@@ -32,7 +32,7 @@ A port lives in the layer that needs it. Persistence ports describe how the doma
 
 - **Dependency rule**: source dependencies point inward. Inner layers never import outer layers.
 - **Ports and adapters**: the domain or application layer defines an interface (a port); infrastructure supplies the implementation (an adapter, see [Design patterns](./design-patterns.md)). Only the composition root knows which adapter is used.
-- **Feature-first**: each feature owns its layers, so a feature can be understood, tested, and changed in one place. Code moves to `shared/` only after real reuse.
+- **Feature-first** ([details](./feature-first.md)): each feature owns its layers, so a feature can be understood, tested, and changed in one place. Code moves to `shared/` only after real reuse.
 - **Explicit mapping**: domain entities, persistence models, and API DTOs are separate types. Mapping between them is explicit, in standalone mappers.
 - **Pragmatism**: apply KISS and YAGNI before DRY and SOLID. Do not add a layer, interface, or pattern that solves a problem you do not have. See [Design principles](./design-principles.md).
 
