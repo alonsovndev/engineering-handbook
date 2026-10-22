@@ -29,7 +29,17 @@ Configure the Worker repository integration as follows:
 
 `wrangler.jsonc` defines the static assets directory, custom-domain binding, trailing-slash behavior, and 404 handling. Docusaurus sets the production URL and root base path. Keep both configurations aligned. Do not independently manage the same Worker through Terraform or another publishing service.
 
-GitHub Actions validates pull requests and pushes to `main` and `dev`; it does not publish anything. See [CI/CD](../ci-cd/README.md).
+GitHub Actions validates pull requests targeting `main` and pushes to `main`; it does not publish anything. [ADR-007](../adr/adr-007-main-only-git-workflow.md) amends the original hosting decision's CI branch targets. See [CI/CD](../ci-cd/README.md).
+
+## Optional preview setup
+
+Hosted previews are preferred but their configuration and availability here are **TBD**. Non-production branch builds remain disabled in the initial setup above. Until previews are configured and verified, serve the site locally and record build results and review evidence in each PR.
+
+When the repository owner enables previews in Cloudflare, confirm the Worker uses the current Worker Previews model, enable preview builds in branch control, and verify the preview command and any isolated settings. Current Worker Previews use `npx wrangler preview`; follow [Cloudflare's branch-build guide](https://developers.cloudflare.com/workers/ci-cd/builds/build-branches/) for the connected Worker's setup. Do not change the production deploy command or upgrade the pinned CLI as part of enabling previews without reviewing the change.
+
+For an existing connection, check its preview model first: switching from the legacy model is irreversible. Legacy version URLs use the uploaded version's existing resources and are not an isolated environment. Do not make that switch as a routine documentation update. See [Cloudflare version URLs](https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/).
+
+Verify a preview corresponds to the intended branch commit and leaves the production hostname unchanged. Add its URL and review results to the PR. Check whether fork contributions receive previews before promising one for every PR; use local evidence when unavailable.
 
 ## Verify before publishing
 

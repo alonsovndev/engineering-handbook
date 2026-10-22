@@ -2,6 +2,7 @@
 
 - **Status**: Accepted
 - **Date**: 2026-10-21
+- **Amended by**: [ADR-007](./adr-007-main-only-git-workflow.md), CI branch targets only
 
 ## Context
 

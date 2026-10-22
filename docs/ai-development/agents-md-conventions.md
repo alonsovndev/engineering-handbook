@@ -31,7 +31,7 @@ Tell an agent what is specific to this repository and where the detailed rules l
 
 ## Agent safety rules to include
 
-- Do not commit or push unless asked. Never commit on `main` or `dev`; work on a named branch.
+- Do not commit or push unless asked. Never commit or push directly on `main` or another protected branch; work on a named branch and target `main` through a PR. Follow the [branching standard](../git/branching.md).
 - Do not add dependencies, call external services, or trigger pipelines without approval.
 - Do not delete, skip, or weaken tests, or disable lint, type checks, hooks, or coverage gates.
 - Do not claim a check passed unless it was run.

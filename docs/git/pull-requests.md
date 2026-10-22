@@ -4,9 +4,9 @@
 
 | Source branch | Target |
 | --- | --- |
-| `feature/*`, `fix/*`, `chore/*` | `dev` |
-| `hotfix/*` | `main` |
-| `dev` (release candidate) | `main` |
+| `feat/*`, `fix/*`, `docs/*`, `chore/*`, `refactor/*`, `test/*` | `main` |
+
+Use the owning repository's `main` in both direct and fork mode. There is no separate release-promotion PR.
 
 ## Title
 
@@ -17,6 +17,8 @@ feat(export): add CSV export endpoint
 ```
 
 When a ticket tracker exists, append the reference: `feat(export): add CSV export endpoint (#42)`. Keep the Conventional Commits prefix so the title stays machine-checkable.
+
+The title becomes the squash commit subject. Mark breaking changes with `!` or a `BREAKING CHANGE:` footer as described in [commits](./commits.md). Inspect the final squash message and preserve the breaking-change explanation and relevant issue references; do not assume GitHub copies the PR body into it.
 
 ## Body
 
@@ -57,11 +59,13 @@ Use this template. Replace every placeholder; write `N/A` where a section does n
 - Keep a PR to one concern. Reviewers approve what they can hold in their head.
 - Open the PR as a draft until CI passes and you have reviewed your own diff.
 - CI must be green before merge. Never bypass failing checks.
-- Merge with a merge commit, not squash or rebase. Merge commits keep feature history, make a single revert possible, and let `dev` fast-forward after a release. See [ADR-002](../adr/adr-002-git-branching-model.md).
+- Squash and merge so each PR contributes one Conventional Commit to `main`. See [ADR-007](../adr/adr-007-main-only-git-workflow.md).
+- Resolve review conversations and bring the branch up to date before merging. Rerun affected verification after changes.
 - Delete the head branch after merge.
 
 ## Review
 
 - Reviewers check correctness, security, regressions, missing tests, and convention violations, in that order. Style that a linter can enforce is not a review comment.
-- Approvals required: PR into `dev` or `main` needs a passing CI run and a pull request. A human approval is required when more than one person contributes to the repository (1 into `dev`, 2 into `main`). Solo repositories may merge their own PRs after CI and a self-review.
+- Apply the approval policy in [branch protection](./branch-protection.md#required-settings): solo repositories self-review; teams require one independent human approval. New reviewable changes require renewed approval.
 - AI review is a first pass, not a replacement for a human review where one is required.
+- Record preview or local review evidence for frontend and documentation changes; see [releases](./releases.md#previews-and-review-evidence).
