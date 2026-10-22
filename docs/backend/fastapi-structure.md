@@ -9,7 +9,7 @@ src/
   app/
     features/<feature>/
       domain/          # entities, value objects, repository ports (ABC)
-      application/     # use cases, DTOs, mappers, transaction boundaries
+      application/     # use cases, DTOs, mappers, transaction boundaries, ports for external collaborators
       infrastructure/  # SQLAlchemy models, repositories, mappers, HTTP clients
       presentation/    # FastAPI routers, request/response schemas
     composition/       # composition root: the only place the object graph is built
@@ -44,7 +44,7 @@ README.md
 
 ## Dependency direction
 
-Inner layers never import outer layers. Infrastructure implements domain ports; the domain never knows infrastructure exists.
+Inner layers never import outer layers. Infrastructure implements domain and application ports; the domain never knows infrastructure exists.
 
 | Layer | May import | Must not import |
 | --- | --- | --- |
