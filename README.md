@@ -6,7 +6,7 @@ Principle: one engineering platform, multiple deployment profiles (static, lean,
 
 ## Run locally
 
-Requires Node 20 or later.
+Use Node 22 to match CI and Cloudflare builds.
 
 ```bash
 npm ci
@@ -24,8 +24,8 @@ docs/
 ├── frontend/
 ├── testing/
 ├── git/
-├── ci-cd/            # planned
-├── cloud/            # planned
+├── ci-cd/
+├── cloud/
 ├── security/         # planned
 ├── observability/    # planned
 ├── ai-development/
@@ -33,6 +33,12 @@ docs/
 ```
 
 Start at [`docs/intro.md`](docs/intro.md).
+
+## Deployment
+
+The production hostname is **https://engineering-docs.alonsovndev.com**. Docusaurus generates a static site in `build/`; Cloudflare Workers Builds publishes it when changes reach `main`. GitHub Actions only validates the site.
+
+The repository connection and custom-domain activation are **TBD** until configured in Cloudflare. Follow [Handbook deployment](docs/cloud/handbook-deployment.md) for exact build settings, prerequisites, verification, and rollback. The hosting decision is recorded in [ADR-006](docs/adr/adr-006-cloudflare-handbook-hosting.md).
 
 ## Contributing
 

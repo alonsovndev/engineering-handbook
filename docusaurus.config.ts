@@ -13,17 +13,9 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here.
-  // For GitHub Pages, it is usually 'https://<organizationName>.github.io'.
-  url: "https://alonsovndev.github.io",
-  // Set the /<baseUrl>/ pathname under which your site is served.
-  // For GitHub Pages deployment, it is often '/<projectName>/'.
-  baseUrl: "/engineering-handbook/",
-
-  // GitHub Pages deployment config.
-  // Replace with your GitHub org/user name and repository name.
-  organizationName: "alonsovndev",
-  projectName: "engineering-handbook",
+  url: "https://engineering-docs.alonsovndev.com",
+  baseUrl: "/",
+  trailingSlash: true,
 
   onBrokenLinks: "throw",
   onBrokenAnchors: "throw",

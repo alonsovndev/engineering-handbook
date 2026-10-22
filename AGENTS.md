@@ -2,7 +2,7 @@
 
 ## Overview
 
-Documentation repository: the engineering handbook. Docusaurus site, Markdown content, no application code. Deployment profile: static (GitHub Pages).
+Documentation repository: the engineering handbook. Docusaurus site, Markdown content, no application code. Deployment profile: static (Cloudflare Workers Static Assets).
 
 ## Commands
 
@@ -50,7 +50,9 @@ See `docs/ai-development/definition-of-done.md`. For this repository: typecheck 
 
 ## Deployment
 
-GitHub Actions (`.github/workflows/deploy.yml`) builds on pull requests and deploys to GitHub Pages on push to `main`. Pages source must be set to GitHub Actions in repository settings (TBD: confirm).
+GitHub Actions (`.github/workflows/deploy.yml`) validates pull requests and pushes to `main` and `dev`; the required job remains `Build`. Cloudflare Workers Builds owns publishing on pushes to `main`. Use Node 22 for CI and Cloudflare builds. The site is entirely static; do not add a Worker script or SPA fallback.
+
+Connection settings, domain prerequisites, verification, and rollback: [Handbook deployment](docs/cloud/handbook-deployment.md). Cloudflare connection and custom-domain activation are user-managed and remain TBD until confirmed. This repository's publishing exception is recorded in [ADR-006](docs/adr/adr-006-cloudflare-handbook-hosting.md).
 
 ## Git
 

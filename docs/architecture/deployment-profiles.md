@@ -22,6 +22,8 @@ flowchart LR
 
 Cloudflare handles DNS, SSL, CDN, and static hosting through Workers static assets on an owned domain. GitHub Actions builds the site and Terraform uploads it, so a content change is a reviewed plan and apply.
 
+The engineering handbook uses Cloudflare Workers Builds instead of Terraform-managed publishing as a repository-specific exception ([ADR-006](../adr/adr-006-cloudflare-handbook-hosting.md)). The shared profile and its validation status are unchanged.
+
 ## lean
 
 ```mermaid
