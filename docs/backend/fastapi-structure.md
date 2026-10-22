@@ -8,7 +8,7 @@ Feature-first layout with Clean Architecture layers inside each feature. See [Cl
 src/
   app/
     features/<feature>/
-      domain/          # entities, value objects, repository ports (ABC)
+      domain/          # entities, value objects, aggregates, domain services, repository ports (ABC)
       application/     # use cases, DTOs, mappers, transaction boundaries, ports for external collaborators
       infrastructure/  # SQLAlchemy models, repositories, mappers, HTTP clients
       presentation/    # FastAPI routers, request/response schemas

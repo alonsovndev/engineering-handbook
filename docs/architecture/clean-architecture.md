@@ -20,7 +20,7 @@ flowchart LR
 
 | Layer | Holds | Depends on |
 | --- | --- | --- |
-| Domain | Entities, value objects, validation rules, repository ports | Nothing outside itself |
+| Domain | Entities, value objects, aggregates, domain services, validation rules, repository ports ([Domain modeling](./domain-modeling.md)) | Nothing outside itself |
 | Application | Use cases, DTOs, mappers to DTOs, transaction boundaries, ports for non-domain collaborators | Domain |
 | Infrastructure | Database models, repositories, HTTP clients, adapters | Domain, application ports |
 | Presentation | Routers, request and response schemas | Application |
@@ -51,7 +51,7 @@ sequenceDiagram
   Adapter->>Database: query
   Database-->>Adapter: row
   Adapter-->>UseCase: entity (model mapped to entity)
-  UseCase->>UseCase: apply business rule
+  UseCase->>UseCase: call domain logic on the entity
   UseCase->>Adapter: save(entity) through the repository port
   Adapter->>Database: write
   UseCase-->>Router: response DTO (entity mapped to DTO)
