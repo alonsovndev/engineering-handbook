@@ -26,7 +26,7 @@ Within this approach, application architecture, testing, documentation, AI tooli
 | Section | Covers | Status |
 | --- | --- | --- |
 | [Architecture](./architecture/README.md) | Design principles, design patterns, clean architecture, domain modeling, feature-first organization, monolith or services, documenting architecture, deployment profiles | Draft |
-| [Backend](./backend/README.md) | Python, FastAPI, dependency injection, REST, database, logging | Draft |
+| [Backend](./backend/README.md) | Python, FastAPI, dependency injection, REST, error handling, database, logging | Draft |
 | [Frontend](./frontend/README.md) | TypeScript, React + Vite, Ant Design, data fetching | Draft |
 | [Testing](./testing/README.md) | Strategy, layout, coverage gate | Draft |
 | [Git and pull requests](./git/README.md) | Branching, commits, PRs, releases | Draft |

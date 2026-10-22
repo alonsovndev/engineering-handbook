@@ -14,6 +14,7 @@ An Architecture Decision Record (ADR) captures a significant decision, the conte
 | [ADR-006](./adr-006-cloudflare-handbook-hosting.md) | Cloudflare static hosting for the engineering handbook | Accepted; CI branch targets amended by [ADR-007](./adr-007-main-only-git-workflow.md) |
 | [ADR-007](./adr-007-main-only-git-workflow.md) | Main-only Git workflow and project-specific releases | Accepted |
 | [ADR-008](./adr-008-modular-monolith-by-default.md) | Modular monolith by default | Proposed |
+| [ADR-009](./adr-009-problem-details-for-error-responses.md) | Problem details for error responses | Proposed |
 
 ## Process
 

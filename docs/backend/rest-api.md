@@ -28,7 +28,7 @@ sidebar_position: 4
 
 ## Errors
 
-Return one error shape from every endpoint. TBD: confirm the exact schema (candidate: RFC 9457 problem details) in template-fastapi and record it as an ADR.
+Return one error shape from every endpoint. The proposed shape is RFC 9457 problem details ([ADR-009](../adr/adr-009-problem-details-for-error-responses.md), Proposed). TBD: confirm the exact schema in template-fastapi before the ADR is accepted. The boundary between 400 and 422 is also TBD. How errors move through the layers: [Error handling](./error-handling.md).
 
 ## Pagination and filtering
 
