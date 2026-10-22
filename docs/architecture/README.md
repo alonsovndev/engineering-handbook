@@ -7,4 +7,5 @@
 | [Clean Architecture](./clean-architecture.md) | Layers, dependency direction, ports and adapters |
 | [Feature-first organization](./feature-first.md) | Organizing by feature, sizing, boundaries, and shared code |
 | [Monolith or services](./monolith-or-services.md) | Modular monolith by default, and the reasons to split |
+| [Documenting architecture](./documenting-architecture.md) | C4 levels drawn in Mermaid, diagram rules, and where diagrams live |
 | [Deployment profiles](./deployment-profiles.md) | static, lean, enterprise |

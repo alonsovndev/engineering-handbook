@@ -115,9 +115,9 @@ Before adding an interface, base class, factory, or other [design pattern](./des
 
 ```mermaid
 flowchart TD
-  start[Considering an abstraction] --> boundary{Protects a real boundary: database, network, filesystem, queue, framework?}
+  start[Considering an abstraction] --> boundary{"Protects a real boundary?<br/>Database, network, filesystem, queue, framework"}
   boundary -- yes --> add[Add it]
-  boundary -- no --> testable{Makes important behavior testable without slow or fragile infrastructure?}
+  boundary -- no --> testable{"Makes important behavior testable<br/>without slow or fragile infrastructure?"}
   testable -- yes --> add
   testable -- no --> variants{Isolates a variant that already exists or is required?}
   variants -- yes --> add
