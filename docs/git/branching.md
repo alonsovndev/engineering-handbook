@@ -1,4 +1,8 @@
-# Branching
+---
+sidebar_position: 1
+---
+
+# Branching workflow
 
 Use `main` as the only permanent branch. Branches manage collaboration; environments and release gates control deployment. [ADR-007](../adr/adr-007-main-only-git-workflow.md) records this decision.
 
@@ -6,18 +10,14 @@ Use `main` as the only permanent branch. Branches manage collaboration; environm
 
 Cut short-lived working branches from `main` and merge them through pull requests. Keep `main` releasable: split unfinished work into safe increments or isolate it behind a disabled feature flag. A merge does not necessarily deploy to production; see [releases](./releases.md).
 
-```mermaid
-flowchart TB
-  base["main"] -->|"Branch"| branch["Short-lived branch"]
-  branch -->|"Open PR"| pr["PR into main"]
-  pr -->|"Check"| ci["CI"]
-  pr -->|"Test"| preview["Preview or local review"]
-  ci -->|"Pass"| review["Review"]
-  preview -->|"Record evidence"| review
-  review -->|"Squash and merge"| merged["main advances"]
-  merged -->|"Clean up"| cleanup["Delete branch"]
-  merged -->|"Deliver"| delivery["Release policy"]
-```
+[![Contribution workflow: branch from main, open a PR into main, pass CI, record review evidence, and update the branch before squash merging. After merge, delete the working branch and follow the release policy.](../../static/img/git/branch-workflow.png)](pathname:///img/git/branch-workflow.png)
+
+Select the diagram to open it at full size. The steps below describe the same workflow.
+
+1. Create a working branch and open a PR into `main`.
+2. Complete CI, preview or local verification, and the [required review](./pull-requests.md#review). Bring the branch up to date before merging.
+3. Squash and merge so the PR contributes one commit to `main`.
+4. Delete the merged working branch. Delivery follows the [project's release path](./releases.md#delivery-paths); branch deletion is cleanup, not a release gate.
 
 ## Branch names
 
@@ -49,6 +49,8 @@ Use lowercase kebab-case, such as `feat/add-export` or `fix/42-token-expiration`
 
 Use fork mode for external contributions and direct mode for solo or small-team repositories with write access.
 
+A remote is a local name for another repository. In direct mode, `origin` is both the push destination and the source of `main`. In fork mode, push your branch to `origin` (your fork), but take updates and target PRs against `upstream` (the shared repository). Check the mapping with `git remote -v` before fetching or pushing.
+
 ## Starting a branch
 
 Direct mode:
@@ -69,7 +71,27 @@ git merge --ff-only upstream/main
 git switch -c feat/add-export
 ```
 
-If the fast-forward fails, stop and resolve the divergence without discarding unmerged work. Bring a working branch up to date by merging the owning remote's `main` into it; this avoids rewriting shared commits.
+If the fast-forward fails, stop and resolve the divergence without discarding unmerged work.
+
+## Updating a working branch
+
+Merge the owning repository's `main` into your working branch to bring in reviewed changes without rewriting existing commits. Start with a clean working tree and confirm the current branch with `git branch --show-current`.
+
+Direct mode, while on `feat/add-export`:
+
+```bash
+git fetch origin
+git merge origin/main
+```
+
+Fork mode, while on `feat/add-export`:
+
+```bash
+git fetch upstream
+git merge upstream/main
+```
+
+Resolve any conflicts, inspect the resulting diff, and rerun affected verification before pushing the working branch to `origin`. A merge commit on a working branch is compatible with [squash merging the PR](./pull-requests.md#rules); the PR still contributes one commit to `main`.
 
 ## Migrating existing repositories
 

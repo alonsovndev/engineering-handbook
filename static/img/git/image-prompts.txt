@@ -1,0 +1,30 @@
+Git and GitHub diagram prompts
+Mode: built-in image generation; opaque backgrounds.
+
+branch-workflow.png — initial generation
+Use case: infographic-diagram
+Asset type: engineering handbook illustration, landscape 3:2, approximately 1536 by 1024.
+Primary request: Create a precise and exceptionally legible technical infographic for a main-only Git and GitHub contribution workflow. Flat vector-like shapes rendered as a bitmap, warm white opaque background, navy typography, restrained medium blue accents, thin clear arrows, large sans-serif labels, generous margins. No decorative gradients, tiny text, logos, watermark, mock browser, mascot, or 3D.
+Title, verbatim: "One main branch. Small reviewed changes."
+Composition: three horizontal tiers, top to bottom. Top tier: a "main" pill points via arrow labeled "Branch" to a "Working branch" card, which points to a "PR into main" card.
+Middle tier: arrow from PR enters a wide bordered panel titled "Before merge". Inside panel show three equally important simple checks with checkmark icons: "CI passes", "Review + evidence", "Branch up to date". Do not imply all independent approvals are always required; do not mention specific review counts.
+Bottom tier: arrow from that checks panel to "Squash merge", then to "main advances". From main advances fork two independent short outgoing arrows to two small final cards: "Delete working branch" and "Follow release policy". Arrange both final cards vertically at far right so the overall image is compact and legible. Do not draw an arrow from delete to release, since cleanup does not gate release.
+Constraints: Use only quoted text above, exact spelling. Real clean arrows, no crossing lines through text. Make it obvious PR checks and review happen before merge; only a short-lived working branch is deleted. Release policy is downstream from merge; do not imply every merge deploys production. Keep labels large enough for a 700px article width.
+
+branch-workflow.png — final connector correction
+Use case: precise-object-edit
+Edit target: the attached Git contribution workflow infographic.
+Make exactly one correction to the connectors. The arrow descending from the "Before merge" panel currently points directly into "main advances", skipping "Squash merge". Remove that central descending arrow completely. In its place, add a short downward blue arrow from the bottom-left part of the "Before merge" panel directly into the top edge of the "Squash merge" card. Keep the existing horizontal arrow from "Squash merge" to "main advances". This must produce the unambiguous sequence: Before merge -> Squash merge -> main advances.
+Preserve all text verbatim, every card, icons, palette, background, typography, spacing, image dimensions, and all other arrows. No new labels. No connector may bypass Squash merge.
+
+artifact-promotion.png — final generation
+Use case: infographic-diagram
+Asset type: engineering handbook illustration, landscape 3:2, approximately 1536 by 1024.
+Primary request: Create a precise, exceptionally legible technical infographic explaining immutable artifact promotion. This replaces a Mermaid diagram. Use flat vector-like shapes rendered as a bitmap, warm white opaque background, navy typography, restrained medium blue accents, thin clear arrows, large sans-serif labels, generous margins. No decorative gradients, tiny text, logos, watermark, or mock browser.
+Title, verbatim: "Build once. Promote the same artifact."
+Layout: three spacious horizontal bands, read top to bottom. Do not use a long narrow six-column flow.
+Top band: two cards with solid blue arrow from "Merged commit" to "Immutable artifact". Arrow label "Build once". Under artifact use a large badge "Digest A".
+Middle band: solid blue arrow from the top artifact into a large "Staging" card on left. Show the exact same "Digest A" badge inside Staging. To its right, a distinct outlined gate card "Verify and approve", with two short lines "Test evidence" and "Tag tested commit". Use a dashed arrow from Staging to this gate, to represent verification rather than a new build. A short line inside gate says "vX.Y.Z".
+Bottom band: large "Production" card on right with the exact same "Digest A" badge. A solid blue artifact path leads from Staging to Production, passing below the gate. Label this path "Promote same digest". A dashed arrow from the gate to that promotion path indicates permission to deploy; label it "Sign-off". The visual must clearly imply production waits for verification and sign-off. There is no build step between Staging and Production.
+Small footer key, readable: "Solid: artifact movement" and "Dashed: release gate".
+Constraints: include only quoted text above; all text correctly spelled; arrows unambiguous and not over labels; "Digest A" identical in all three occurrences; no separate production artifact, no tag on a moving main branch, no implication of automatic production deployment. Favor clarity at a rendered width of 700px.
