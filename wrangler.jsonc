@@ -1,6 +1,7 @@
 {
   "name": "engineering-handbook",
   "compatibility_date": "2026-10-21",
+  "previews": {},
   "assets": {
     "directory": "./build",
     "html_handling": "force-trailing-slash",

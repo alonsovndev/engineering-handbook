@@ -29,7 +29,7 @@ Within this approach, application architecture, testing, documentation, AI tooli
 | [Backend](./backend/README.md) | Python, FastAPI, dependency injection, REST, error handling, database, persistence patterns, logging | Draft |
 | [Frontend](./frontend/README.md) | TypeScript, React + Vite, Ant Design, data fetching | Draft |
 | [Testing](./testing/README.md) | Strategy, layout, coverage gate | Draft |
-| [Git and pull requests](./git/README.md) | Branching, commits, PRs, releases | Draft |
+| [Git and GitHub](./git/README.md) | Branches, commits, pull requests, repository protections, releases | Draft |
 | [AI development](./ai-development/README.md) | AGENTS.md, lifecycle, definition of done | Draft |
 | [CI/CD](./ci-cd/README.md) | Reusable workflows | Planned |
 | [Cloud](./cloud/README.md) | AWS and Cloudflare | Planned |

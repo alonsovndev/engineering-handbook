@@ -37,6 +37,8 @@ Hosted previews are preferred but their configuration and availability here are 
 
 When the repository owner enables previews in Cloudflare, confirm the Worker uses the current Worker Previews model, enable preview builds in branch control, and verify the preview command and any isolated settings. Current Worker Previews use `npx wrangler preview`; follow [Cloudflare's branch-build guide](https://developers.cloudflare.com/workers/ci-cd/builds/build-branches/) for the connected Worker's setup. Do not change the production deploy command or upgrade the pinned CLI as part of enabling previews without reviewing the change.
 
+`npx wrangler preview` requires a `previews` block in `wrangler.jsonc`. This static site uses an empty block because it needs no separate preview bindings. Keep `assets` and compatibility settings at the top level, and keep production routes outside `previews`; see [Cloudflare's preview configuration](https://developers.cloudflare.com/workers/previews/configuration/). The declaration supports preview uploads but does not establish that a hosted preview has succeeded.
+
 For an existing connection, check its preview model first: switching from the legacy model is irreversible. Legacy version URLs use the uploaded version's existing resources and are not an isolated environment. Do not make that switch as a routine documentation update. See [Cloudflare version URLs](https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/).
 
 Verify a preview corresponds to the intended branch commit and leaves the production hostname unchanged. Add its URL and review results to the PR. Check whether fork contributions receive previews before promising one for every PR; use local evidence when unavailable.

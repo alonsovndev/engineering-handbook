@@ -1,6 +1,10 @@
-# Releases
+---
+sidebar_position: 5
+---
 
-Choose the production trigger by delivery needs. All projects use the same [branching model](./branching.md); testing and release control belong in the deployment pipeline.
+# Releases and artifact promotion
+
+Choose the production trigger by delivery needs. All projects use the same [branching model](./branching.md); testing and release control belong in the deployment pipeline. Start with the delivery-path table, then use the relevant release gate below.
 
 ## Delivery paths
 
@@ -22,16 +26,20 @@ For full-stack changes, validate the frontend against a compatible backend in st
 
 ## Artifact promotion
 
-The backend/SaaS path promotes one verified artifact. Its release tag identifies the tested commit; production uses the recorded digest.
+The backend/SaaS path promotes one verified artifact. Build once, test that output in staging, then deploy the same output to production after sign-off.
 
-```mermaid
-flowchart TB
-  main["Merged main commit"] -->|"Build once"| artifact["Immutable artifact"]
-  artifact -->|"Deploy"| staging["Staging"]
-  staging -->|"Run smoke / integration / E2E checks"| verified["Test evidence + digest"]
-  verified -->|"Sign off tested version"| release["vX.Y.Z on tested commit"]
-  release -->|"Promote same digest"| production["Production"]
-```
+| Term | Meaning |
+| --- | --- |
+| Artifact | The built output, such as a container image or package |
+| Digest / checksum | An identity derived from the artifact's contents; it identifies the exact output |
+| Release tag | A version name such as `v1.4.0` pointing to the tested source commit |
+| Promotion | Deploying the already verified artifact to the next environment without rebuilding it |
+
+A release tag identifies the source version. The recorded digest identifies what production deploys. Keep both with the test evidence so the pipeline can connect the approved source to the approved output.
+
+[![Artifact promotion: build an immutable artifact from a merged commit, deploy its digest to staging, record tests and sign-off, tag the tested commit, and promote the same digest to production without rebuilding.](../../static/img/git/artifact-promotion.png)](pathname:///img/git/artifact-promotion.png)
+
+The diagram's “Digest A” represents the same immutable artifact throughout. Solid arrows show artifact movement; dashed arrows show the verification and approval gate. Select the diagram to open it at full size.
 
 1. Build the merged `main` commit once. Give the artifact an immutable identity: use the image digest for containers, or a checksum for a package. A commit-based image tag helps discovery but does not replace the digest.
 2. Deploy that artifact to staging with environment-specific configuration. Record the commit, artifact digest, and smoke / integration / E2E results together.
@@ -41,6 +49,21 @@ flowchart TB
 For SaaS spanning repositories, record the compatible frontend and backend versions in the release evidence. If a frontend build embeds environment values, it is a different artifact when rebuilt for production; use runtime configuration for promotion or explicitly verify the production artifact rather than claiming it is the staged artifact.
 
 Use a protected deployment environment approval where supported. Otherwise require a recorded maintainer sign-off for the exact version before triggering production; do not silently replace approval with an automatic deploy. GitHub environment approval availability depends on the repository visibility and plan. See [GitHub environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
+
+### Example: main advances during staging
+
+The following is a hypothetical release record. Replace angle-bracket placeholders with actual identities and evidence in a project's release process.
+
+| Record | Example |
+| --- | --- |
+| Tested source commit | `<tested-commit>`, reachable from `main` |
+| Container artifact | `sha256:<artifact-digest>`; “Digest A” in the diagram |
+| Staging checks | Required smoke / integration / E2E checks passed for that commit and digest |
+| Sign-off | Recorded approval for that version and digest |
+| Release tag | `v1.4.0` points to `<tested-commit>` |
+| Production artifact | The same `sha256:<artifact-digest>` |
+
+Suppose another PR merges while staging checks run, so `main` now points to `<newer-commit>`. Release `v1.4.0` still targets `<tested-commit>` and its recorded digest. Building the latest `main` or deploying a moving image tag could select untested output. If the staging checks fail, stop the release; a later fix produces a new artifact that must pass verification before promotion.
 
 ## Infrastructure approvals
 

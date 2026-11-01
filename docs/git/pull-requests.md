@@ -1,4 +1,18 @@
+---
+sidebar_position: 3
+---
+
 # Pull requests
+
+Use a pull request (PR) to explain one change, collect verification evidence, and review the diff before it reaches `main`.
+
+## From draft to merge
+
+1. Push the working branch to `origin` and open a draft PR against the [correct repository](./branching.md#repository-topologies).
+2. Write the title and body below. Review your own diff, run local checks, and record the tested commit and results.
+3. Wait for CI to pass, then mark the PR ready for review. Follow the [review policy](#review).
+4. Address feedback and [update the branch](./branching.md#updating-a-working-branch) as needed. Rerun affected checks and renew approval after reviewable changes.
+5. Confirm the [merge requirements](#rules), inspect the final squash message, and squash merge. Delete the merged working branch; follow [releases](./releases.md) for delivery.
 
 ## Targets
 
@@ -52,6 +66,41 @@ Use this template. Replace every placeholder; write `N/A` where a section does n
 ## Related
 
 - Closes #{issue}
+```
+
+### Completed example
+
+This illustrative body accompanies `docs(git): explain artifact promotion`. Its results are examples; report only checks actually run for your PR. No issue is linked because this example has none.
+
+```markdown
+# Summary
+
+Explain how a tested commit, release tag, and artifact digest identify one release.
+Add a diagram showing the same artifact in staging and production.
+
+## Verification
+
+- npm run typecheck — passed
+- npm run build — passed
+- Reviewed the release page locally in light and dark modes at desktop and mobile widths.
+
+## Risk
+
+Documentation only; release automation and deployment settings are unchanged.
+
+## Screenshots / Evidence
+
+Screenshots of the revised diagram attached to this PR.
+
+## Checklist
+
+- [x] Tests added/updated where applicable (N/A: documentation only)
+- [x] Docs updated where applicable
+- [x] No secrets or credentials included
+
+## Related
+
+N/A
 ```
 
 ## Rules

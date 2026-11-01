@@ -1,6 +1,12 @@
-# Branch protection
+---
+sidebar_position: 4
+---
+
+# GitHub repository protections
 
 Protect `main` so every change follows the [pull-request rules](./pull-requests.md). Configure a ruleset or classic branch protection; documentation alone does not enforce these settings.
+
+Branch protection controls what can enter `main`. Repository settings control how PRs merge and whether merged working branches are deleted. Configure both so the hosted behavior matches the workflow.
 
 ## Required settings
 
@@ -32,4 +38,13 @@ These capabilities depend on the GitHub plan and repository visibility. Verify a
 
 ## Handbook configuration status
 
-The local workflow defines `Build` for PRs targeting `main` and pushes to `main`. Hosted protections, merge-method settings, and automatic branch deletion are **TBD** until configured and verified in GitHub. Changing this page does not change GitHub settings.
+The table above is the required standard. The table below records what can currently be established for this handbook.
+
+| Item | Known status |
+| --- | --- |
+| CI definition | The local workflow defines `Build` for PRs targeting `main` and pushes to `main` |
+| Required checks and protection enforcement | **TBD**: hosted configuration has not been verified |
+| Squash-only merging and default squash subject | **TBD**: hosted configuration has not been verified |
+| Automatic deletion of merged working branches | **TBD**: hosted configuration has not been verified |
+
+After configuring GitHub, check that the rules target `main`, the intended check is required, and the effective settings match this page. Record verified settings separately from requirements. A workflow file proves which checks are defined; it does not prove GitHub requires them before merge.

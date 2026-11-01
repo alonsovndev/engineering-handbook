@@ -1,6 +1,10 @@
-# Commits
+---
+sidebar_position: 2
+---
 
-Commits follow [Conventional Commits](https://www.conventionalcommits.org/).
+# Commit messages
+
+Write commits in the [Conventional Commits](https://www.conventionalcommits.org/) format so readers can identify the intent of a change from its subject.
 
 ```text
 <type>[optional scope]: <description>
@@ -37,11 +41,37 @@ Commits follow [Conventional Commits](https://www.conventionalcommits.org/).
 - Do not add AI or tool co-author trailers (`Co-authored-by: ...`). The person who commits owns the change. See [ADR-007](../adr/adr-007-main-only-git-workflow.md).
 - Do not bypass hooks (`--no-verify`). Fix the failure instead.
 
+## Examples
+
+A focused fix needs a specific subject:
+
+```text
+fix(api): handle null project owner
+```
+
+A breaking change identifies both the contract change and what callers must do:
+
+```text
+feat(api)!: require cursor pagination for project lists
+
+Offset pagination cannot keep results stable while projects are added.
+
+BREAKING CHANGE: replace page and page_size with cursor and limit.
+```
+
+### Working commits and squash history
+
+Use focused commits while developing and responding to review. A PR might contain `feat(export): add CSV export`, followed by `test(export): cover empty results`. These commits help reviewers understand the work.
+
+At merge, the PR becomes one commit on `main`. Its subject describes the complete change, such as `feat(export): add CSV export`, and comes from the [PR title](./pull-requests.md#title). Preserve breaking-change details and relevant issue references in the final squash message. Intermediate commits remain visible in the PR; their individual ancestry is not preserved on `main`.
+
 ## Enforcement
 
 Configure the format check locally with a `commit-msg` hook and in CI on pull request titles. The hook checks only the subject line and lets Git-generated `Merge ...` and `Revert ...` messages through. With squash merging, also check the final commit message against the [PR conventions](./pull-requests.md#title).
 
 The handbook's current `Build` workflow checks types and builds the site; it does not validate PR titles or install a commit hook. Automated commit/title enforcement here is **TBD**; review the title and final squash message manually until configured.
+
+The following hook checks subject structure and description length. It does not enforce every writing rule above, inspect breaking-change footers, or validate PR titles.
 
 ```bash
 #!/usr/bin/env sh
